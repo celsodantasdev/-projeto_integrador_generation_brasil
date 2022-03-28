@@ -7,6 +7,7 @@
     tools:context=".PostagemFragment">
 
     <androidx.recyclerview.widget.RecyclerView
+        tools:listitem="@layout/card_layout_post"
         android:id="@+id/recycleFeed"
         android:layout_width="409dp"
         android:layout_height="729dp"
