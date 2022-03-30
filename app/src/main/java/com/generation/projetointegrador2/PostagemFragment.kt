@@ -5,6 +5,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.generation.projetointegrador2.adapter.PostagensAdapter
@@ -14,13 +15,15 @@ import com.generation.projetointegrador2.model.Postagem
 class PostagemFragment : Fragment() {
 
     private lateinit var binding: FragmentPostagemBinding
-    //private lateinit var mainViewModel: MainViewModel
+    private val mainViewModel: MainViewModel by activityViewModels()
 
     //Momento em que a view está sendo criada
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+
+        mainViewModel.listPostagem()
 
         //essa variável recebe o layout que será criado
         binding = FragmentPostagemBinding.inflate(layoutInflater, container, false)
@@ -47,7 +50,11 @@ class PostagemFragment : Fragment() {
             findNavController().navigate(R.id.action_postagemFragment_to_formularioFragment)
         }
 
-
+        mainViewModel.myPostagemResponse.observe(viewLifecycleOwner){
+            response -> if(response != null){
+                adapter.setLista(response.body()!!)
+        }
+        }
 
         return binding.root
 
