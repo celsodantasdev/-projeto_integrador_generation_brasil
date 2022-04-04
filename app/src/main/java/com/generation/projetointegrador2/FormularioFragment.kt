@@ -23,11 +23,13 @@ class FormularioFragment : Fragment(), TimePickerListener {
 
     private lateinit var binding: FragmentFormularioBinding
     private var temaSelecionado = 0
+    private var postagemSelecionada: Postagem? = null
     //private lateinit var mainViewModel: MainViewModel
 
     //Momento em que a view está sendo criada
 
     private val mainViewModel: MainViewModel by activityViewModels()
+
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -37,6 +39,7 @@ class FormularioFragment : Fragment(), TimePickerListener {
         //essa variável recebe o layout que será criado
         binding = FragmentFormularioBinding.inflate(layoutInflater, container, false)
 
+        carregarDados()
 
         //botão sendo criado para construção da view
         binding.buttonPostagem.setOnClickListener {
@@ -131,16 +134,42 @@ class FormularioFragment : Fragment(), TimePickerListener {
         val tema = Tema(temaSelecionado, null, null)
 
         if (validarCampos(titulo, descricao, imagem, dataHora, autor)){
-            val postagem = Postagem(
-                0, titulo, descricao, imagem, dataHora, autor, tema)
-            mainViewModel.addPostagem(postagem)
-            Toast.makeText(context, "Você criou uma ação solidária!", Toast.LENGTH_LONG).show()
-            findNavController().navigate(R.id.action_formularioFragment_to_postagemFragment)
+            if (postagemSelecionada == null){
+                val postagem = Postagem(
+                    0, titulo, descricao, imagem, dataHora, autor, tema)
+                mainViewModel.addPostagem(postagem)
+
+            } else {
+            val postagem = Postagem(postagemSelecionada?.id!!,
+            titulo, descricao, imagem, dataHora, autor, tema
+                )
+            mainViewModel.updatePostagem(postagem)
+
         }
-        else {
+        Toast.makeText(context, "Você criou uma ação solidária!", Toast.LENGTH_LONG).show()
+        findNavController().navigate(R.id.action_formularioFragment_to_postagemFragment)
+
+
+    }else {
             Toast.makeText(context, "Preencha todos os campos", Toast.LENGTH_LONG).show()
         }
+    }
+    private fun carregarDados(){
+        postagemSelecionada = mainViewModel.postagemSelecionada
+        if (postagemSelecionada != null){
+            binding.editTitulo.setText(postagemSelecionada?.titulo)
+            binding.editDescricao.setText(postagemSelecionada?.descricao)
+            binding.editData.setText(postagemSelecionada?.dataHora)
+            binding.editAutor.setText(postagemSelecionada?.autor)
+            binding.editTextLinkImagem.setText(postagemSelecionada?.imagem)
 
+        }else{
+            binding.editTitulo.text = null
+            binding.editDescricao.text = null
+            binding.editData.text = null
+            binding.editAutor.text = null
+            binding.editTextLinkImagem.text = null
+        }
 
     }
 

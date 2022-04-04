@@ -9,10 +9,11 @@ import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.generation.projetointegrador2.adapter.PostagensAdapter
+import com.generation.projetointegrador2.adapter.TaskItemClickListener
 import com.generation.projetointegrador2.databinding.FragmentPostagemBinding
 import com.generation.projetointegrador2.model.Postagem
 
-class PostagemFragment : Fragment() {
+class PostagemFragment : Fragment(), TaskItemClickListener {
 
     private lateinit var binding: FragmentPostagemBinding
     private val mainViewModel: MainViewModel by activityViewModels()
@@ -34,7 +35,7 @@ class PostagemFragment : Fragment() {
         //instanciando a lista de postagem com o RecryclerView localizado pelo ID.
 
         //criando o adapter // adapter é responsável por cuidar do RecyclerView
-        val adapter = PostagensAdapter()
+        val adapter = PostagensAdapter(this, mainViewModel)
 
         //chamando a variável RecryclerPostagem com o método layoutManager
         //recebendo o tipo de Layout que ele terá
@@ -47,8 +48,10 @@ class PostagemFragment : Fragment() {
         binding.recycleFeed.setHasFixedSize(true)
 
         binding.buttonMais.setOnClickListener(){
+            mainViewModel.postagemSelecionada = null
             findNavController().navigate(R.id.action_postagemFragment_to_formularioFragment)
         }
+
 
         mainViewModel.myPostagemResponse.observe(viewLifecycleOwner){
             response -> if(response != null){
@@ -59,6 +62,11 @@ class PostagemFragment : Fragment() {
         return binding.root
 
 
+    }
+
+    override fun onTaskClicked(postagem: Postagem) {
+        mainViewModel.postagemSelecionada = postagem
+        findNavController().navigate(R.id.action_postagemFragment_to_formularioFragment)
     }
 
 }

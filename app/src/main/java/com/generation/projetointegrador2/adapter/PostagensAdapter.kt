@@ -3,16 +3,21 @@ package com.generation.projetointegrador2.adapter
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageButton
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import com.generation.projetointegrador2.MainViewModel
 import com.generation.projetointegrador2.R
 import com.generation.projetointegrador2.model.Postagem
 
 //Criando a classe a PostagensAdapter que precisará de uma segunda classe
 //RecyclerView.Adapter diz que a minha classe será um adapter
 //<PostagensAdapter.PostagemViewHolder> diz que PostagensAdapter será do tipo ViewHolder
-class PostagensAdapter: RecyclerView.Adapter<PostagensAdapter.PostagemViewHolder>() {
+class PostagensAdapter(
+    private val taskItemClickListener: TaskItemClickListener,
+    private val mainViewModel: MainViewModel
+): RecyclerView.Adapter<PostagensAdapter.PostagemViewHolder>() {
 
     //criando uma variável listaPostagens vazia.
     //Passando "Formulário" entre as tags para dizer qual o tipo de lista que essa var irá receber
@@ -29,7 +34,7 @@ class PostagensAdapter: RecyclerView.Adapter<PostagensAdapter.PostagemViewHolder
         val textCategoria = view.findViewById<TextView>(R.id.textCategoria)
         val textDataHora = view.findViewById<TextView>(R.id.textDataEHora)
         val cardTitulo = view.findViewById<TextView>(R.id.tituloCard)
-
+        val buttonEdit = view.findViewById<ImageButton>(R.id.buttonEdit)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): PostagensAdapter.PostagemViewHolder {
@@ -60,6 +65,12 @@ class PostagensAdapter: RecyclerView.Adapter<PostagensAdapter.PostagemViewHolder
         holder.textCategoria.text = postagem.tema.descricao
         holder.textDataHora.text = postagem.dataHora
 
+        holder.itemView.setOnClickListener{
+
+        }
+        holder.buttonEdit.setOnClickListener{
+            taskItemClickListener.onTaskClicked(postagem)
+        }
 
     }
 

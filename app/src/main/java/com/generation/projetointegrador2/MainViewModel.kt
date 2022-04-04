@@ -17,6 +17,7 @@ import javax.inject.Inject
 @HiltViewModel
 class MainViewModel @Inject constructor(
     val repository: Repository): ViewModel() {
+    var postagemSelecionada: Postagem? = null
 
         private val _myTemaResponse = MutableLiveData<Response<List<Tema>>>()
 
@@ -68,5 +69,16 @@ class MainViewModel @Inject constructor(
             }
         }
     }
+        fun updatePostagem(postagem: Postagem){
+            viewModelScope.launch {
 
+            try {
+            repository.updatePostagem(postagem)
+                listPostagem()
+
+            }catch (e: Exception){
+                Log.d("Erro", e.message.toString())
+              }
+            }
+        }
 }

@@ -18,5 +18,8 @@ class Repository {
     suspend fun listPostagem(): Response<List<Postagem>>{
         return RetrofitInstance.api.listPostagem()
     }
+    suspend fun updatePostagem(postagem: Postagem): Response<Postagem>{
+        return RetrofitInstance.api.updatePostagem(postagem)
+    }
 
 }
