@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
-    app:startDestination="@id/postagemFragment">
+    app:startDestination="@id/loginFragment">
     <fragment
         android:id="@+id/postagemFragment"
         android:name="com.generation.projetointegrador2.PostagemFragment"
@@ -21,5 +21,14 @@
         <action
             android:id="@+id/action_formularioFragment_to_postagemFragment"
             app:destination="@id/postagemFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/loginFragment"
+        android:name="com.generation.projetointegrador2.LoginFragment"
+        android:label="fragment_login"
+        tools:layout="@layout/fragment_login" >
+        <action
+            android:id="@+id/action_loginFragment_to_formularioFragment"
+            app:destination="@id/formularioFragment" />
     </fragment>
 </navigation>
