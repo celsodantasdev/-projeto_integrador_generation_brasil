@@ -25,7 +25,7 @@ class LoginFragment : Fragment() {
         binding = FragmentLoginBinding.inflate(layoutInflater, container, false)
 
         binding.buttonLogin.setOnClickListener(){
-            findNavController().navigate(R.id.action_loginFragment_to_formularioFragment)
+            findNavController().navigate(R.id.action_loginFragment_to_postagemFragment)
 
         }
         return binding.root

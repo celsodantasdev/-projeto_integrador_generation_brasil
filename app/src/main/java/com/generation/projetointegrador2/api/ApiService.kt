@@ -16,12 +16,12 @@ interface ApiService {
     @GET("postagens")
     suspend fun listPostagem():Response <List<Postagem>>
 
-    @PUT("postagem")
+    @PUT("postagens")
     suspend fun updatePostagem(
         @Body postagem: Postagem
     ): Response<Postagem>
 
-    @DELETE("postagem/{id}")
+    @DELETE("postagens/{id}")
     suspend fun deletePostagem(
         @Path("id") valor: Int
     ): Response<Postagem>
