@@ -35,6 +35,7 @@ class PostagensAdapter(
         val textDataHora = view.findViewById<TextView>(R.id.textDataEHora)
         val cardTitulo = view.findViewById<TextView>(R.id.tituloCard)
         val buttonEdit = view.findViewById<ImageButton>(R.id.buttonEdit)
+        val buttonDelete = view.findViewById<ImageButton>(R.id.buttonDelete)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): PostagensAdapter.PostagemViewHolder {
@@ -70,6 +71,9 @@ class PostagensAdapter(
         }
         holder.buttonEdit.setOnClickListener{
             taskItemClickListener.onTaskClicked(postagem)
+        }
+        holder.buttonDelete.setOnClickListener{
+            mainViewModel.deletePostagem(postagem.id)
         }
 
     }
