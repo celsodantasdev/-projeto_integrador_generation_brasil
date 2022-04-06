@@ -22,16 +22,16 @@ class PostagensAdapter(
     private val taskItemClickListener: TaskItemClickListener,
     private val mainViewModel: MainViewModel,
     private val context: Context
-): RecyclerView.Adapter<PostagensAdapter.PostagemViewHolder>() {
+) : RecyclerView.Adapter<PostagensAdapter.PostagemViewHolder>() {
 
     //criando uma variável listaPostagens vazia.
     //Passando "Formulário" entre as tags para dizer qual o tipo de lista que essa var irá receber
     private var listaPostagens = emptyList<Postagem>()
 
     //a classe abaixo deve existir para o adapter existir. É necessário o ViewHolder
-    class PostagemViewHolder(view: View): RecyclerView.ViewHolder(view){
+    class PostagemViewHolder(view: View) : RecyclerView.ViewHolder(view) {
 
-//Instanciando as variáveis com o ID dos componentes
+        //Instanciando as variáveis com o ID dos componentes
         val textNomeUsuario = view.findViewById<TextView>(R.id.textNomeUsu)
         val textPostagemTexto = view.findViewById<TextView>(R.id.textPostagemTexto)
         val textImagemLink = view.findViewById<TextView>(R.id.editTextLinkImagem)
@@ -43,11 +43,15 @@ class PostagensAdapter(
         val buttonDelete = view.findViewById<ImageButton>(R.id.buttonDelete)
     }
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): PostagensAdapter.PostagemViewHolder {
+    override fun onCreateViewHolder(
+        parent: ViewGroup,
+        viewType: Int
+    ): PostagensAdapter.PostagemViewHolder {
 
         //Definindo qual o Layout que será utilizado no nosso RecyclerView
         //No caso, estamos dizendo que utilizaremos o card
-        val layout = LayoutInflater.from(parent.context).inflate(R.layout.card_layout_post, parent,false)
+        val layout =
+            LayoutInflater.from(parent.context).inflate(R.layout.card_layout_post, parent, false)
 
         //no fim, retornamos a classe PostagemViewHolder
         //PostagemViewHolder(layout) - passando o layout no constructor da class PostagemViewHolder
@@ -76,23 +80,23 @@ class PostagensAdapter(
             .placeholder(R.drawable.doge)
             .into(holder.imagePostagem)
 
-        holder.itemView.setOnClickListener{
+        holder.itemView.setOnClickListener {
 
         }
-        holder.buttonEdit.setOnClickListener{
+        holder.buttonEdit.setOnClickListener {
             taskItemClickListener.onTaskClicked(postagem)
         }
-        holder.buttonDelete.setOnClickListener{
+        holder.buttonDelete.setOnClickListener {
 
             val builder = AlertDialog.Builder(context)
             builder.setTitle("Deseja mesmo deletar?")
             builder.setMessage("Você irá deletar esta ação, tem certeza?")
-            builder.setPositiveButton("Apagar"){
-                    dialog, wich -> Toast.makeText(context, "Postagem apagada!", Toast.LENGTH_LONG).show()
+            builder.setPositiveButton("Apagar") { dialog, wich ->
+                Toast.makeText(context, "Postagem apagada!", Toast.LENGTH_LONG).show()
                 mainViewModel.deletePostagem(postagem.id)
             }
-            builder.setNegativeButton("Cancelar"){
-                    dialog, wich -> Toast.makeText(context, "Ação cancelada!", Toast.LENGTH_LONG).show()
+            builder.setNegativeButton("Cancelar") { dialog, wich ->
+                Toast.makeText(context, "Ação cancelada!", Toast.LENGTH_LONG).show()
             }
             val dialog: AlertDialog = builder.create()
             dialog.show()
@@ -107,7 +111,7 @@ class PostagensAdapter(
 
     //criando uma função recebendo uma lista<e o tipo>
     //listaPostagens = lista - listaPostagens está recebendo a lista passada na função
-    fun setLista(lista: List<Postagem>){
+    fun setLista(lista: List<Postagem>) {
         listaPostagens = lista
 
         //esse método diz quando a lista mudou e atualiza a lista
