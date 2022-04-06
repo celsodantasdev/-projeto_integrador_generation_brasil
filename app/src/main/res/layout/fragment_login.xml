@@ -19,7 +19,7 @@
 
     <EditText
         android:id="@+id/editTextTextPersonName"
-        android:layout_width="347dp"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
         android:layout_marginTop="16dp"
@@ -36,7 +36,7 @@
 
     <EditText
         android:id="@+id/editTextNumberPassword"
-        android:layout_width="347dp"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
         android:layout_marginTop="24dp"
@@ -54,7 +54,7 @@
 
     <Button
         android:id="@+id/buttonLogin"
-        android:layout_width="347dp"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
         android:layout_marginTop="24dp"
@@ -80,9 +80,11 @@
 
     <Button
         android:id="@+id/button2"
-        android:layout_width="347dp"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
         android:layout_marginTop="24dp"
+        android:layout_marginEnd="32dp"
         android:backgroundTint="@color/facebook"
         android:text="Entrar com Facebook"
         android:textColor="@color/white"
@@ -92,9 +94,11 @@
 
     <Button
         android:id="@+id/button3"
-        android:layout_width="347dp"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
         android:layout_marginTop="24dp"
+        android:layout_marginEnd="32dp"
         android:backgroundTint="@color/twitter"
         android:text="Entrar com Twitter"
         app:layout_constraintEnd_toEndOf="parent"
@@ -103,9 +107,11 @@
 
     <Button
         android:id="@+id/button4"
-        android:layout_width="347dp"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
         android:layout_marginTop="20dp"
+        android:layout_marginEnd="32dp"
         android:backgroundTint="@color/gmail"
         android:text="Entrar com Gmail"
         app:layout_constraintBottom_toBottomOf="parent"

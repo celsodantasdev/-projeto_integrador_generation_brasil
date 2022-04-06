@@ -19,25 +19,27 @@
             android:layout_height="wrap_content"
             android:layout_margin="10dp"
             android:layout_marginBottom="10dp"
-            android:textSize="25sp"
+            android:textSize="20sp"
             tools:text="Nome de Usuário" />
 
         <TextView
             android:id="@+id/tituloCard"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="10dp"
+            android:layout_marginHorizontal="10dp"
+            android:layout_marginTop="20dp"
             android:layout_marginBottom="10dp"
-            android:textSize="25sp"
+            android:textSize="20sp"
+            android:textStyle="bold"
             tools:text="Título" />
 
         <TextView
             android:id="@+id/textPostagemTexto"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="10dp"
+            android:layout_marginHorizontal="10dp"
             android:layout_marginBottom="10dp"
-            android:textSize="23sp"
+            android:textSize="20sp"
             tools:text="Postagem" />
 
         <ImageView
@@ -79,9 +81,9 @@
                 android:layout_width="50dp"
                 android:layout_height="50dp"
                 android:layout_marginHorizontal="10dp"
-                android:layout_marginStart="270dp"
+                android:layout_marginStart="250dp"
                 android:layout_marginBottom="15dp"
-                android:contentDescription="@string/app_name"
+                android:contentDescription="@string/CareApp"
                 android:minHeight="48dp"
                 app:srcCompat="@drawable/ic_baseline_edit_note_24" />
 
@@ -90,7 +92,7 @@
                 android:layout_width="50dp"
                 android:layout_height="50dp"
                 android:layout_marginEnd="20dp"
-                android:contentDescription="@string/app_name"
+                android:contentDescription="@string/CareApp"
                 android:minHeight="48dp"
                 app:srcCompat="@drawable/ic_baseline_delete_24" />
 
