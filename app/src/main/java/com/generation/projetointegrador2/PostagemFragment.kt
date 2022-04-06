@@ -35,7 +35,7 @@ class PostagemFragment : Fragment(), TaskItemClickListener {
         //instanciando a lista de postagem com o RecryclerView localizado pelo ID.
 
         //criando o adapter // adapter é responsável por cuidar do RecyclerView
-        val adapter = PostagensAdapter(this, mainViewModel)
+        val adapter = PostagensAdapter(this, mainViewModel, requireContext())
 
         //chamando a variável RecryclerPostagem com o método layoutManager
         //recebendo o tipo de Layout que ele terá

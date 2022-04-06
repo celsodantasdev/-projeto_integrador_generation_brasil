@@ -1,12 +1,16 @@
 package com.generation.projetointegrador2.adapter
 
+import android.app.AlertDialog
+import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageButton
 import android.widget.ImageView
 import android.widget.TextView
+import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
 import com.generation.projetointegrador2.MainViewModel
 import com.generation.projetointegrador2.R
 import com.generation.projetointegrador2.model.Postagem
@@ -16,7 +20,8 @@ import com.generation.projetointegrador2.model.Postagem
 //<PostagensAdapter.PostagemViewHolder> diz que PostagensAdapter será do tipo ViewHolder
 class PostagensAdapter(
     private val taskItemClickListener: TaskItemClickListener,
-    private val mainViewModel: MainViewModel
+    private val mainViewModel: MainViewModel,
+    private val context: Context
 ): RecyclerView.Adapter<PostagensAdapter.PostagemViewHolder>() {
 
     //criando uma variável listaPostagens vazia.
@@ -66,6 +71,11 @@ class PostagensAdapter(
         holder.textCategoria.text = postagem.tema.descricao
         holder.textDataHora.text = postagem.dataHora
 
+        Glide.with(context)
+            .load(postagem.imagem)
+            .placeholder(R.drawable.doge)
+            .into(holder.imagePostagem)
+
         holder.itemView.setOnClickListener{
 
         }
@@ -73,7 +83,19 @@ class PostagensAdapter(
             taskItemClickListener.onTaskClicked(postagem)
         }
         holder.buttonDelete.setOnClickListener{
-            mainViewModel.deletePostagem(postagem.id)
+
+            val builder = AlertDialog.Builder(context)
+            builder.setTitle("Deseja mesmo deletar?")
+            builder.setMessage("Você irá deletar esta ação, tem certeza?")
+            builder.setPositiveButton("Apagar"){
+                    dialog, wich -> Toast.makeText(context, "Postagem apagada!", Toast.LENGTH_LONG).show()
+                mainViewModel.deletePostagem(postagem.id)
+            }
+            builder.setNegativeButton("Cancelar"){
+                    dialog, wich -> Toast.makeText(context, "Ação cancelada!", Toast.LENGTH_LONG).show()
+            }
+            val dialog: AlertDialog = builder.create()
+            dialog.show()
         }
 
     }
