@@ -77,7 +77,7 @@ class PostagensAdapter(
 
         Glide.with(context)
             .load(postagem.imagem)
-            .placeholder(R.drawable.doge)
+            .placeholder(R.drawable.careapp2)
             .into(holder.imagePostagem)
 
         holder.itemView.setOnClickListener {
