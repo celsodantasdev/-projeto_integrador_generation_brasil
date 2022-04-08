@@ -53,6 +53,6 @@ Nesse projeto utilizamos tudo o que aprendemos durante as 12 semanas do Bootcamp
 - Bruna Borelli: [LinkedIn](https://www.linkedin.com/in/bruna-borelli/)
 - Celso Dantas: [LinkedIn](https://www.linkedin.com/in/celso-dantas/)
 - Leticia Franco: [LinkedIn](https://www.linkedin.com/in/leticia-fsilva/)
-- Yasmin Yarnut: [LinkedIn](https://www.linkedin.com/in/yasmin-arnaut/)
+- Yasmin Arnaut: [LinkedIn](https://www.linkedin.com/in/yasmin-arnaut/)
 
 
