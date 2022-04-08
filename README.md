@@ -2,11 +2,13 @@
 
 <h2>Preview do Projeto </h2>
 
-|<img src="https://github.com/celsodantasdev/app_projeto_integrador_generation_brasil/blob/master/CareAppSplash.png" width="160" height="320"/>
+<p>
+<img src="https://github.com/celsodantasdev/app_projeto_integrador_generation_brasil/blob/master/CareAppSplash.png" width="160" height="320"/>
 <img src="https://github.com/celsodantasdev/app_projeto_integrador_generation_brasil/blob/master/CareAppLogin.png" width="160" height="320"/>
 <img src="https://github.com/celsodantasdev/app_projeto_integrador_generation_brasil/blob/master/CareAppFeed.png" width="160" height="320"/>
 <img src="https://github.com/celsodantasdev/app_projeto_integrador_generation_brasil/blob/master/CareAppFormulario.png" width="160" height="320"/>
-<img src="https://github.com/celsodantasdev/app_projeto_integrador_generation_brasil/blob/master/CareAppFormularioCategoria.png" width="160" height="320"/>|
+<img src="https://github.com/celsodantasdev/app_projeto_integrador_generation_brasil/blob/master/CareAppFormularioCategoria.png" width="160" height="320"/>
+</p>
 
 # Sobre o Aplicativo:
 
@@ -30,9 +32,10 @@ Nesse projeto utilizamos tudo o que aprendemos durante as 12 semanas do Bootcamp
 - Lottie Animations
 - Clean Code
 - Glide
-
-|<img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/kotlin/kotlin-original.svg" width="64" height="128" />
-<img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/android/android-plain.svg" width="64" height="128" />|
+<p>
+<img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/kotlin/kotlin-original.svg" width="64" height="128" />
+<img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/android/android-plain.svg" width="64" height="128" />
+</p>
 
 ### Funções:
 
