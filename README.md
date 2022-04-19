@@ -14,7 +14,7 @@
 
 O projeto se trata de um app que tem como ideia ser uma rede social que conecta usuários com um interesse em comum: criar ações sociais que possam ajudar a vida de outras pessoas.
 
-Nesse projeto utilizamos tudo o que aprendemos durante as 12 semanas do Bootcamp intensivo de Desenvolvimento Mobile da Generation Brasil.
+Nesse projeto utilizamos tudo o que aprendemos durante as 10 semanas do Bootcamp intensivo de Desenvolvimento Mobile da Generation Brasil.
 
 # Tecnologias Utilizadas:
 
